@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light Exercise</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        .traffic-light {
+            width: 100px;
+            background-color: black;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .light {
+            width: 60px;
+            height: 60px;
+            background-color: grey;
+            margin: 10px auto;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .red.active {
+            background-color: red;
+        }
+
+        .yellow.active {
+            background-color: yellow;
+        }
+
+        .green.active {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="traffic-light">
+        <div class="light red"></div>
+        <div class="light yellow"></div>
+        <div class="light green"></div>
+    </div>
+
+    <script>
+        const redLight = document.querySelector('.red');
+        const yellowLight = document.querySelector('.yellow');
+        const greenLight = document.querySelector('.green');
+
+        function changeLight() {
+            if (redLight.classList.contains('active')) {
+                redLight.classList.remove('active');
+                yellowLight.classList.add('active');
+            } else if (yellowLight.classList.contains('active')) {
+                yellowLight.classList.remove('active');
+                greenLight.classList.add('active');
+            } else if (greenLight.classList.contains('active')) {
+                greenLight.classList.remove('active');
+                redLight.classList.add('active');
+            } else {
+                redLight.classList.add('active');
+            }
+        }
+
+        setInterval(changeLight, 2000);
+    </script>
+</body>
+</html>
